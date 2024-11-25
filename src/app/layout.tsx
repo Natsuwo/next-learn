@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./header";
+import AppFooter from "./footer";
+import AppTable from "./table";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,9 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header>Tester layout</header>
-        {children}
-        <footer>Test footer</footer>
+        <Header />
+
+        <div className="container">{children}</div>
+        <AppFooter />
       </body>
     </html>
   );
