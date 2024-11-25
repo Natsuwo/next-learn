@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import AppTable from "./table";
 import useSWR from "swr";
 
@@ -17,17 +16,14 @@ export default function Home() {
     }
   );
 
-  console.log(data);
+  if (!data) {
+    return <>div.loading...</>;
+  }
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const res = await fetch("http://localhost:8000/blogs");
-  //     console.log(await res.json());
-  //   })();
-  // }, []);
+  console.log(data);
   return (
     <div className="mt-2">
-      <AppTable></AppTable>
+      <AppTable blogs={data}></AppTable>
     </div>
   );
 }
